@@ -121,10 +121,22 @@ faturamento = [
 	}
 ]
 
-menor_valor = 0
+menor_valor = float("inf")
 maior_valor = 0
 sup_media_mensal = 0
+qtd = 0
 
 for i in faturamento:
-    if menor_valor < i["valor"]:
-        menor_valor = i["valor"]
+    if i["valor"] > 0:
+        qtd += 1
+        sup_media_mensal += i["valor"]
+
+        if menor_valor > i["valor"]:
+            menor_valor = i["valor"]
+
+        if maior_valor < i["valor"]:
+            maior_valor = i["valor"]
+
+print(f"Maior valor: {maior_valor}")
+print(f"Menor valor: {menor_valor}")
+print(f"Media {sup_media_mensal/qtd}")
